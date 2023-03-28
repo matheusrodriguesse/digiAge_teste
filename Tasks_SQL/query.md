@@ -1,4 +1,4 @@
-Query 01
+**Query 01**
 
 Comentários: Seleciona-se a coluna desejada, aplica-se a função count e 
 define-se a coluna como quantidade a partir da tabela employees.employees;
@@ -16,7 +16,7 @@ Group By gender;
 
 
 
-Query 02
+**Query 02**
 
 Comentários: Seleciona-se as colunas pedidas pela task, em seguida renomeou-se
 as colunas e foi acrescentada uma de idade pelo recurso da função CURDATE, pega o presente
@@ -35,7 +35,7 @@ GROUP BY gender, ano_entrada, ano_nascimento, idade;
 
 
 
-Query 03
+**Query 03**
 
 Comentários: Como não havia uma tabela já pronta, apenas a do mayk_teste, decidi
 unir as tabelas de funcionários com a de salários ja existente através do recurso
