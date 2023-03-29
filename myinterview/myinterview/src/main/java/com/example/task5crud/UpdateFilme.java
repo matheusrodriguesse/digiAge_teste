@@ -1,4 +1,4 @@
-package com.example;
+package com.example.task5crud;
 
 import com.example.model.Categoria;
 import com.example.model.Filme;
@@ -11,8 +11,8 @@ public class UpdateFilme {
     public static void main(String[] args) throws SQLException {
 
         FilmeDAO dao = new FilmeDAO();
-        //Precisamos recuperar o registro
 
+        //Precisamos recuperar o registro
         Optional<Filme> filmeOptional = dao.findById(3L);
 
         if (filmeOptional.isPresent()) {
@@ -22,6 +22,7 @@ public class UpdateFilme {
             System.out.println("Duração: "+ filme.getDuracao());
             System.out.println("Categoria: " + filme.getCategoria());
 
+            //Novos valores
             filme.setNome("Testando");
             filme.setDuracao(180);
             filme.setCategoria(Categoria.Suspense);

@@ -16,6 +16,10 @@ public class Filme {
         this.categoria = categoria;
     }
 
+    public Filme() {
+
+    }
+
     public Long getId() {
         return id;
     }

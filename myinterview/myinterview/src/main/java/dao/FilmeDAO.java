@@ -20,16 +20,16 @@ public class FilmeDAO implements iFilmeDAO {
             //Passando a instrução sql e retornando uma chave
             PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
-
+            //Setando na memória
             preparedStatement.setString(1, filme.getNome());
             preparedStatement.setDouble(2, filme.getDuracao());
             preparedStatement.setString(3, filme.getCategoria().toString());
 
             //Executando instrução
-            preparedStatement.execute();
+            preparedStatement.executeUpdate();
 
-            //Recuperando a chave
-           ResultSet resultSet = preparedStatement.getGeneratedKeys();
+            //Recuperando a chave e gerando um Id
+            ResultSet resultSet = preparedStatement.getGeneratedKeys();
             resultSet.next();
 
             Long generatedId = resultSet.getLong("id");
@@ -51,7 +51,7 @@ public class FilmeDAO implements iFilmeDAO {
             //Passando a instrução sql e retornando uma chave
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
-
+            //Setando na memória os novos valores
             preparedStatement.setString(1, filme.getNome());
             preparedStatement.setDouble(2, filme.getDuracao());
             preparedStatement.setString(3, filme.getCategoria().toString());
@@ -69,7 +69,21 @@ public class FilmeDAO implements iFilmeDAO {
 
     @Override
     public void delete(Long id) {
+        try(Connection connection = ConnectionFactory.getConnection()) {
+            String sql = "DELETE FILMES WHERE id = ?" ;
+            //Passando a instrução sql e retornando uma chave
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
+
+
+            preparedStatement.setLong(1,id);
+
+            //Executando instrução
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
     }
 
     @Override

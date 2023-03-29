@@ -14,8 +14,8 @@ public class ConnectionFactory {
     public static Connection getConnection() {
         try {
             return DriverManager.getConnection("jdbc:mysql://localhost:3306/filmes_teste","root","megaman105");
-        } catch (SQLException e) {
-            throw new RuntimeException("Erro ao conectar ao banco de dados", e);
+        } catch (SQLException ex) {
+            throw new RuntimeException("Erro ao conectar ao banco de dados", ex);
         }
     }
 }
