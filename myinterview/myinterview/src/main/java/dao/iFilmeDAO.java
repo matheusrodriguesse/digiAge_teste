@@ -3,6 +3,7 @@ package dao;
 import com.example.model.Categoria;
 import com.example.model.Filme;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,7 +15,7 @@ public interface iFilmeDAO {
     List<Filme> findAll();
 
     //O Optional ajuda quando o usuário passa um Id que não existe
-    Optional<Filme> findById(Long id);
+    Optional<Filme> findById(Long id) throws SQLException;
 
     List<Filme> findByCategoria(Categoria categoria);
 

@@ -9,6 +9,13 @@ public class Filme {
     //Criou-se um enum no intuito de subdividir a classe
     private Categoria categoria;
 
+    public Filme(Long id, String nome, double duracao, Categoria categoria) {
+        this.id = id;
+        this.nome = nome;
+        this.duracao = duracao;
+        this.categoria = categoria;
+    }
+
     public Long getId() {
         return id;
     }
