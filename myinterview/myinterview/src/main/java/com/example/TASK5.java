@@ -16,6 +16,8 @@ import java.util.Optional;
  */
 public class TASK5 {
     public static void main(String[] args) throws SQLException {
+        FilmeDAO dao = new FilmeDAO();
+
 /*        Metodo para apresentar todos os filmes
         FilmeDAO dao = new FilmeDAO();
         List<Filme> filmes = dao.findAll();
@@ -28,16 +30,26 @@ public class TASK5 {
             System.out.println("=================================");
         } */
 
-        //Metodo para apresentar o filme por ID
+        //Metodo para buscar o filme por ID
 
-        FilmeDAO dao = new FilmeDAO();
-        Optional<Filme> filmeOptional = dao.findById(2L);
+       /* Optional<Filme> filmeOptional = dao.findById(2L);
         filmeOptional.ifPresent(filme -> {
             System.out.println("ID: " + filme.getId());
             System.out.println("Nome: " + filme.getNome());
             System.out.println("Duração: "+ filme.getDuracao());
             System.out.println("Categoria: " + filme.getCategoria());
-        });
-                ;
+        }); */
+
+        //Metodo para buscar o filme por categoria
+        List<Filme> filmes =  dao.findByCategoria(Categoria.Suspense);
+        for (Filme filme: filmes) {
+            System.out.println("ID: " + filme.getId());
+            System.out.println("Nome: " + filme.getNome());
+            System.out.println("Duração: "+ filme.getDuracao());
+            System.out.println("Categoria: " + filme.getCategoria());
+            System.out.println("=================================");
+        }
+
+
     }
 }

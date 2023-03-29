@@ -104,6 +104,26 @@ public class FilmeDAO implements iFilmeDAO {
 
     @Override
     public List<Filme> findByCategoria(Categoria categoria) {
-        return null;
-    }
-}
+
+        String sql = "SELECT id, nome, duracao, categoria FROM Filmes WHERE categoria = ?";
+        List<Filme> filmes = new ArrayList<>();
+
+        try (Connection connection = ConnectionFactory.getConnection()){
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+            preparedStatement.setString(1,categoria.toString());
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                Long pKey = resultSet.getLong("id");
+                String nome = resultSet.getString("nome");
+                Double duracao = resultSet.getDouble("duracao");
+                Categoria cat = Categoria.valueOf(resultSet.getString("categoria"));
+                Filme filme = new Filme(pKey, nome, duracao, cat);
+                filmes.add(filme);
+
+            }
+        return filmes;
+    } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }}
