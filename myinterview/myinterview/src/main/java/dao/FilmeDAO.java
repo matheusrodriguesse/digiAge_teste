@@ -45,7 +45,26 @@ public class FilmeDAO implements iFilmeDAO {
 
     @Override
     public Filme update(Filme filme) {
-        return null;
+        //Chamando a conexão
+        try(Connection connection = ConnectionFactory.getConnection()) {
+            String sql = "UPDATE FILMES SET nome = ?, duracao = ?, categoria = ? WHERE id = ?" ;
+            //Passando a instrução sql e retornando uma chave
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+
+            preparedStatement.setString(1, filme.getNome());
+            preparedStatement.setDouble(2, filme.getDuracao());
+            preparedStatement.setString(3, filme.getCategoria().toString());
+            preparedStatement.setLong(4,filme.getId());
+
+            //Executando instrução
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
+
+        return filme;
     }
 
     @Override
