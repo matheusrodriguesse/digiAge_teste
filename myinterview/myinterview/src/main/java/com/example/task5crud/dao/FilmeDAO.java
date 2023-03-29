@@ -1,8 +1,8 @@
-package dao;
+package com.example.task5crud.dao;
 
-import com.example.model.Categoria;
-import com.example.model.Filme;
-import infra.ConnectionFactory;
+import com.example.task5crud.model.Categoria;
+import com.example.task5crud.model.Filme;
+import com.example.task5crud.infra.ConnectionFactory;
 
 import java.sql.*;
 import java.util.ArrayList;

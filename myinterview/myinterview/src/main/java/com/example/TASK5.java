@@ -1,12 +1,11 @@
 package com.example;
 
-import com.example.model.Categoria;
-import com.example.model.Filme;
-import dao.FilmeDAO;
+import com.example.task5crud.model.Categoria;
+import com.example.task5crud.model.Filme;
+import com.example.task5crud.dao.FilmeDAO;
 
 import java.sql.SQLException;
 import java.util.List;
-import java.util.Optional;
 
 /**
  * Create an implementation of a Rest API .

@@ -1,7 +1,7 @@
-package dao;
+package com.example.task5crud.dao;
 
-import com.example.model.Categoria;
-import com.example.model.Filme;
+import com.example.task5crud.model.Categoria;
+import com.example.task5crud.model.Filme;
 
 import java.sql.SQLException;
 import java.util.List;

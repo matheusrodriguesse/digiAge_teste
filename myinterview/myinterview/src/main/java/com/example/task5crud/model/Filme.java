@@ -1,4 +1,4 @@
-package com.example.model;
+package com.example.task5crud.model;
 
 //Criando o modelo da classe Filme
 public class Filme {

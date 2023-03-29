@@ -1,6 +1,6 @@
 package com.example.task5crud;
 
-import dao.FilmeDAO;
+import com.example.task5crud.dao.FilmeDAO;
 
 public class DeleteFilm {
     public static void main(String[] args) {

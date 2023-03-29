@@ -1,4 +1,4 @@
-package infra;
+package com.example.task5crud.infra;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
