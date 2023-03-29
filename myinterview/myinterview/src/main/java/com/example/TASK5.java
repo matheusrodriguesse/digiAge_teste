@@ -4,7 +4,9 @@ import com.example.model.Categoria;
 import com.example.model.Filme;
 import dao.FilmeDAO;
 
+import java.sql.SQLException;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Create an implementation of a Rest API .
@@ -13,8 +15,8 @@ import java.util.List;
  *
  */
 public class TASK5 {
-    public static void main(String[] args) {
-
+    public static void main(String[] args) throws SQLException {
+/*        Metodo para apresentar todos os filmes
         FilmeDAO dao = new FilmeDAO();
         List<Filme> filmes = dao.findAll();
 
@@ -23,7 +25,19 @@ public class TASK5 {
             System.out.println("Nome: " + filme.getNome());
             System.out.println("Duração: "+ filme.getDuracao());
             System.out.println("Categoria: " + filme.getCategoria());
+            System.out.println("=================================");
+        } */
 
-        }
+        //Metodo para apresentar o filme por ID
+
+        FilmeDAO dao = new FilmeDAO();
+        Optional<Filme> filmeOptional = dao.findById(2L);
+        filmeOptional.ifPresent(filme -> {
+            System.out.println("ID: " + filme.getId());
+            System.out.println("Nome: " + filme.getNome());
+            System.out.println("Duração: "+ filme.getDuracao());
+            System.out.println("Categoria: " + filme.getCategoria());
+        });
+                ;
     }
 }
